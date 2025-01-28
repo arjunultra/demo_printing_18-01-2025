@@ -1741,7 +1741,7 @@
   left: 0;
   right: 0;
   bottom: 0;
-  background: #2098d1;
+  background: #fb4e04 !important;
   -webkit-transform: scale(0);
   transform: scale(0);
   -webkit-transition-property: transform;
@@ -1754,6 +1754,7 @@
 .hvr-rectangle-out:active,
 .hvr-rectangle-out:focus,
 .hvr-rectangle-out:hover {
+  text-transform: uppercase;
   color: #fff;
 }
 .hvr-rectangle-out:active:before,

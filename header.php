@@ -6,7 +6,7 @@
             Demo <em class="text-white">Printz</em>
         </a>
         <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#myNavbar">
-            <span class="navbar-toggler-icon text-nav-main"></span>
+            <span class="bi bi-list nav-icon text-nav-main"></span>
         </button>
         <div id="myNavbar" class="collapse navbar-collapse">
             <ul class="navbar-nav ml-auto text-center">
@@ -20,10 +20,26 @@
                 } ?>">
                     <a class="nav-link " href="about.php">About</a>
                 </li>
-                <li class="nav-item px-2 <?php if ($page == "services") {
+                <!-- services dropdown -->
+                <li class="nav-item px-2 dropdown <?php if ($page == "services") {
                     echo "active";
                 } ?>">
-                    <a class="nav-link " href="services.php">Services</a>
+                    <a class="nav-link dropdown-toggle" href="services.php" role="button" data-toggle="dropdown"
+                        aria-expanded="false">
+                        Services
+                    </a>
+                    <div class="dropdown-menu">
+                        <a target="_blank" class="dropdown-item" href="services.php#business-cards">Business Card
+                            Printing</a>
+                        <a target="_blank" class="dropdown-item" href="services.php#brouchures">Brochures Designing &
+                            Printing</a>
+                        <a target="_blank" class="dropdown-item" href="services.php">Flyers & Notice Printing</a>
+                        <a target="_blank" class="dropdown-item" href="services.php">Posters Printing</a>
+                        <a target="_blank" class="dropdown-item" href="services.php">Corrugation Box Printing</a>
+                        <a target="_blank" class="dropdown-item" href="services.php">Calendar Printing</a>
+                        <!-- <div class="dropdown-divider"></div> -->
+
+                    </div>
                 </li>
                 <li class="nav-item px-2 <?php if ($page == "gallery") {
                     echo "active";

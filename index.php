@@ -36,12 +36,17 @@
 	<script src="js/bootstrap.min.js"></script>
 	<script src="js/owl.carousel.min.js"></script>
 	<script src="js/wow.js"></script>
+	<script src="./js/script.js"></script>
+
 </head>
 <!-- index-carousel  -->
 
 <!-- index-carousel end -->
 
 <body itemscope itemtype="http://schema.org/WebPage">
+	<!-- cursor -->
+	<div id="custom-cursor"></div>
+	<div class="click-effect"></div>
 	<?php include "header.php"; ?>
 	<div id="carouselExampleSlidesOnly" class="carousel slide" data-ride="carousel">
 		<div class="carousel-inner">
@@ -61,7 +66,7 @@
 						<h2 class="text-center text-main"><span class="sour-gummy-serif text-white">Demo</span> Printz
 						</h2>
 						<p class="text-white"><span class="text-main">45 </span> Years of <span
-								class="text-main">excellence </span>in
+								class="text-main">Excellence </span>in
 							the
 							industry</p>
 					</div>
@@ -98,16 +103,16 @@
 	<!-- hero section -->
 	<section class="hero-section hero-section-3 pad">
 		<div class="container">
-			<div class="row d-flex justify-content-around align-items-center">
-				<div class="col-12 col-md-6 col-lg-6 text-center wow rollIn">
+			<div class="row d-flex justify-content-between align-items-center">
+				<div class="col-12 col-md-12 col-lg-6 text-center wow rollIn">
 					<div class="hero-text-container mb-4">
-						<h1 class="hero-title mb-2">High-Quality Offset Printing for Your Business</h1>
+						<h1 class="hero-title mb-2 text-main">High-Quality Offset Printing for Your Business</h1>
 						<p class="hero-subtitle mb-4">
 							We provide professional offset printing services with a focus on quality,
 							precision, and timely delivery. From brochures to packaging, we've got you
 							covered.
 						</p>
-						<ul class="hero-list text-justify">
+						<ul class="hero-list text-justify helvetica">
 							<li><i class="bi bi-check2-circle hero-li"></i> Customized solutions for brochures, business
 								cards, and more...</li>
 							<li><i class="bi bi-check2-circle hero-li"></i> Fast turnaround times with exceptional
@@ -115,11 +120,11 @@
 							<li><i class="bi bi-check2-circle hero-li"></i> Eco-friendly printing options available.
 							</li>
 						</ul>
-						<a href="/quote" class="btn btn-outline-primary">Request a Quote <i
+						<a href="about.php" class="btn btn-outline-main">About Us <i
 								class="bi bi-arrow-right d-inline-block hvr-forward"></i></a>
 					</div>
 				</div>
-				<div class="col-12 col-md-6 col-lg-6 text-center hvr-bounce-in wow bounceInDown"><img
+				<div class="col-12 col-md-12 col-lg-6 text-center hvr-bounce-in wow bounceInDown p-5"><img
 						src="images/printing-17.webp" alt=" Offset Printing Press" class="img-fluid rounded hero-image"
 						title="Demo Printz" /></div>
 
@@ -169,95 +174,177 @@
 	<section id="services" class="services section pad wow bounceIn">
 		<!-- Section Title -->
 		<div class="container section-title aos-init aos-animate" data-aos="fade-up">
-			<h2>Services</h2>
-			<p>What we do offer</p>
+			<h2 class="text-main font-weight-bold">Our Services</h2>
+			<p class="py-4">What we do offer</p>
 		</div><!-- End Section Title -->
 
 		<div class="container">
 			<div class="row">
-				<div class="col-lg-4 col-md-6 col-12 my-card">
-					<div class="service-item  position-relative">
-						<div class="icon">
-							<i class="bi bi-cash-stack" style="color: #0dcaf0;"></i>
+				<div class="col-lg-4 col-md-6 col-12 my-card hvr-box-shadow-outset">
+					<div class="service-item d-flex align-items-center justify-content-between">
+						<div class="image-container">
+							<img class="" src="images/service-6.webp" alt="Demo Printz business cards"
+								title="Demo Printz">
 						</div>
-						<a href="service-details.html" class="stretched-link">
-							<h3>Nesciunt Mete</h3>
-						</a>
-						<p>Provident nihil minus qui consequatur non omnis maiores. Eos accusantium minus dolores iure
-							perferendis tempore et consequatur.</p>
+						<div class="text">
+							<a href="services.php#business-cards" target="_blank" class="stretched-link">
+								<h3 class="text-main">Business Cards Service</h3>
+							</a>
+							<p>High-quality business card prints.</p>
+						</div>
 					</div>
 				</div><!-- End Service Item -->
-
-				<div class="col-lg-4 col-md-6 col-12 my-card">
-					<div class=" service-item position-relative">
-						<div class="icon">
-							<i class="bi bi-calendar4-week" style="color: #fd7e14;"></i>
+				<div class="col-lg-4 col-md-6 col-12 my-card hvr-box-shadow-outset">
+					<div class="service-item d-flex align-items-center justify-content-between">
+						<div class="image-container">
+							<img class="" src="images/service-7.webp" alt="Demo Printz business cards"
+								title="Demo Printz">
 						</div>
-						<a href="service-details.html" class="stretched-link">
-							<h3>Eosle Commodi</h3>
-						</a>
-						<p>Ut autem aut autem non a. Sint sint sit facilis nam iusto sint. Libero corrupti neque eum hic
-							non ut nesciunt dolorem.</p>
+						<div class="text">
+							<a href="services.php#brouchures" class="stretched-link">
+								<h3 class="text-main">Brochures Service</h3>
+							</a>
+							<p>Full-color, custom folds.</p>
+						</div>
 					</div>
 				</div><!-- End Service Item -->
-
-				<div class="col-lg-4 col-md-6 col-12 my-card">
-					<div class="service-item position-relative">
-						<div class="icon">
-							<i class="bi bi-chat-text" style="color: #20c997;"></i>
+				<div class="col-lg-4 col-md-6 col-12 my-card hvr-box-shadow-outset">
+					<div class="service-item d-flex align-items-center justify-content-between">
+						<div class="image-container">
+							<img class="" src="images/service-8.webp" alt="Demo Printz business cards"
+								title="Demo Printz">
 						</div>
-						<a href="service-details.html" class="stretched-link">
-							<h3>Ledo Markt</h3>
-						</a>
-						<p>Ut excepturi voluptatem nisi sed. Quidem fuga consequatur. Minus ea aut. Vel qui id voluptas
-							adipisci eos earum corrupti.</p>
+						<div class="text">
+							<a href="service-details.html" class="stretched-link">
+								<h3 class="text-main">Flyers Service</h3>
+							</a>
+							<p>Single or double-sided, vibrant designs.</p>
+						</div>
 					</div>
 				</div><!-- End Service Item -->
-
-				<div class="col-lg-4 col-md-6 aos-init aos-animate" data-aos="fade-up" data-aos-delay="400">
-					<div class="service-item position-relative">
-						<div class="icon">
-							<i class="bi bi-credit-card-2-front" style="color: #df1529;"></i>
+				<div class="col-lg-4 col-md-6 col-12 my-card hvr-box-shadow-outset">
+					<div class="service-item d-flex align-items-center justify-content-between">
+						<div class="image-container">
+							<img class="" src="images/service-9.webp" alt="Demo Printz business cards"
+								title="Demo Printz">
 						</div>
-						<a href="service-details.html" class="stretched-link">
-							<h3>Asperiores Commodit</h3>
-						</a>
-						<p>Non et temporibus minus omnis sed dolor esse consequatur. Cupiditate sed error ea fuga sit
-							provident adipisci neque.</p>
+						<div class="text">
+							<a href="service-details.html" class="stretched-link">
+								<h3 class="text-main">Posters Service</h3>
+							</a>
+							<p>Large format, vibrant prints.</p>
+						</div>
 					</div>
 				</div><!-- End Service Item -->
-
-				<div class="col-lg-4 col-md-6 aos-init aos-animate" data-aos="fade-up" data-aos-delay="500">
-					<div class="service-item position-relative">
-						<div class="icon">
-							<i class="bi bi-globe" style="color: #6610f2;"></i>
+				<div class="col-lg-4 col-md-6 col-12 my-card hvr-box-shadow-outset">
+					<div class="service-item d-flex align-items-center justify-content-between">
+						<div class="image-container">
+							<img class="" src="images/service-10.webp" alt="Demo Printz business cards"
+								title="Demo Printz">
 						</div>
-						<a href="service-details.html" class="stretched-link">
-							<h3>Velit Doloremque</h3>
-						</a>
-						<p>Cumque et suscipit saepe. Est maiores autem enim facilis ut aut ipsam corporis aut. Sed animi
-							at autem alias eius labore.</p>
+						<div class="text">
+							<a href="service-details.html" class="stretched-link">
+								<h3 class="text-main">Corrugation Box Printing</h3>
+							</a>
+							<p>Durable, custom packaging available in various sizes.</p>
+						</div>
 					</div>
 				</div><!-- End Service Item -->
-
-				<div class="col-lg-4 col-md-6 aos-init aos-animate" data-aos="fade-up" data-aos-delay="600">
-					<div class="service-item position-relative">
-						<div class="icon">
-							<i class="bi bi-clock" style="color: #f3268c;"></i>
+				<div class="col-lg-4 col-md-6 col-12 my-card hvr-box-shadow-outset">
+					<div class="service-item d-flex align-items-center justify-content-between">
+						<div class="image-container">
+							<img class="" src="images/service-11.webp" alt="Demo Printz business cards"
+								title="Demo Printz">
 						</div>
-						<a href="service-details.html" class="stretched-link">
-							<h3>Dolori Architecto</h3>
-						</a>
-						<p>Hic molestias ea quibusdam eos. Fugiat enim doloremque aut neque non et debitis iure.
-							Corrupti recusandae ducimus enim.</p>
+						<div class="text">
+							<a href="service-details.html" class="stretched-link">
+								<h3 class="text-main">Calendars Design Printing Service</h3>
+							</a>
+							<p>Custom designs & various sizes.</p>
+						</div>
 					</div>
 				</div><!-- End Service Item -->
-
 			</div>
-
 		</div>
-
 	</section>
+	<!-- Gallery Section index -->
+	<section class="products-services bg-main pad wow fadeInDownBig">
+		<h2 class="h1 text-white font-weight-bold text-uppercase text-center mb-5 mb-md-0">Our Portfolio</h2>
+		<div class="grid-container">
+			<div class="product-div w-75">
+				<div class="card custom-card">
+					<img src="./images/printing-1.webp" class="mycard-img-top" alt="Card Image">
+					<div class="card-body">
+						<h5 class="card-title">Offset Printing</h5>
+					</div>
+				</div>
+			</div>
+			<div class="product-div w-75">
+				<div class="card custom-card">
+					<img src="./images/gallery-1.webp" class="mycard-img-top" alt="Card Image">
+					<div class="card-body">
+						<h5 class="card-title">Business Stationary</h5>
+					</div>
+				</div>
+			</div>
+			<div class="product-div w-75">
+				<div class="card custom-card">
+					<img src="./images/gallery-2.webp" class="card-img-top" alt="Card Image">
+					<div class="card-body">
+						<h5 class="card-title">Marketing Material</h5>
+					</div>
+				</div>
+			</div>
+			<div class="product-div w-75">
+				<div class="card custom-card">
+					<img src="./images/printing-17.webp" class="card-img-top" alt="Card Image">
+					<div class="card-body">
+						<h5 class="card-title">Sublimation Printing</h5>
+					</div>
+				</div>
+			</div>
+			<div class="product-div w-75">
+				<div class="card custom-card">
+					<img src="./images/gallery-3.webp" class="card-img-top" alt="Card Image">
+					<div class="card-body">
+						<h5 class="card-title">Logo Design</h5>
+					</div>
+				</div>
+			</div>
+			<div class="product-div w-75">
+				<div class="card custom-card">
+					<img src="./images/gallery-5.webp" class="card-img-top" alt="Card Image">
+					<div class="card-body">
+						<h5 class="card-title">Flex / Vinyl Printing</h5>
+					</div>
+				</div>
+			</div>
+		</div>
+		<button class="btn btn-dark mx-auto d-block gallery-btn">
+			<a href="gallery.php" class="text-white text-uppercase">View More</a></a>
+		</button>
+	</section>
+	<!-- white section  -->
+	<section class="cta pad">
+		<div class="container">
+			<div class="row align-items-center">
+				<div class="col-md-8">
+					<div class="ctaIcon">
+						<i class="bi bi-telephone-fill"></i>
+						<h4>Feel Free to contact us anytime to get more details!</h4>
+					</div>
+				</div>
+				<div class="col-md-4">
+					<form class="mc4wp-form" method="post">
+						<input type="text" name="EMAIL" placeholder="9999999999" readonly>
+						<a href="contact.php"><button class="cta-btn" type="submit"><i class="bi bi-telephone-fill"></i>
+								Call Us</button></a>
+					</form>
+				</div>
+			</div>
+		</div>
+	</section>
+	<?php include 'footer.php'; ?>
 	<div class="fixed point w0">
 		<a href="https://api.whatsapp.com/send?phone=91">
 			<img src="images/whatsappicon.png" class="priceicn float-left" alt="" title="">
@@ -285,8 +372,7 @@
 	<script>
 		new WOW().init();
 	</script>
-	<script src="./js/script.js"></script>
-	<script src="./js/gsap.min.js"></script>
+
 	<script>
 		var counted = 0;
 		$(window).scroll(function () {
@@ -313,6 +399,8 @@
 			}
 		});
 	</script>
+	<div class="custom-cursor"></div>
+	<div class="click-effect"></div>
 </body>
 
 </html>

@@ -1,9 +1,11 @@
 @import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css");
 :root {
   --main-color: #fb4e04;
-  --secondary-color: #e9e8e7;
+  --secondary-color: #ffffff;
   --mydark: #000000;
   --sayan-yellow: #ffd700;
+  --info: #17a2b8;
+  --product-shadow: rgba(0, 0, 0, 0.2);
 }
 h1,
 h2,
@@ -11,7 +13,10 @@ h3,
 h4,
 h5,
 h6 {
-  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  font-family: Arial, sans-serif;
+}
+body {
+  cursor: url("../images/cursor.png") 16 16, auto !important;
 }
 p {
   font-family: Helvetica, sans-serif;
@@ -91,10 +96,40 @@ li {
 .text-black {
   color: #000000;
 }
+/* Base styles for custom cursor */
+.custom-cursor {
+  width: 50px;
+  height: 50px;
+  border: 2px solid #e88e07;
+  border-radius: 50%;
+  position: absolute;
+  pointer-events: none;
+  transform: translate(-50%, -50%);
+  transition: transform 0.1s ease, left 0.1s ease, top 0.1s ease;
+  z-index: 9999;
+}
+
+/* Click effect animation */
+.click-effect {
+  position: absolute;
+  width: 70px;
+  height: 70px;
+  border: 2px solid rgb(232, 115, 4);
+  border-radius: 50%;
+  pointer-events: none;
+  transform: translate(-50%, -50%) scale(1);
+  opacity: 0;
+  animation: none;
+}
+
 // navbar
+.navbar-light {
+  .bi.bi-list.nav-icon {
+    color: #fff;
+  }
+}
 .navbar-light .navbar-toggler {
   border-color: var(--main-color) !important;
-  color: #333333 !important;
   span.navbar-toggler-icon {
     svg {
       fill: var(--main-color);
@@ -111,8 +146,10 @@ li {
   color: #fff !important;
 }
 .navbar-light .navbar-nav :hover.nav-link {
-  color: #ffd700 !important;
+  color: var(--info) !important;
   transition: 1s;
+  border-top: 3px solid var(--main-color) !important;
+  border-bottom: 3px solid var(--main-color) !important;
 }
 .navbar {
   transition: background-color 1s ease, box-shadow 1s ease;
@@ -128,7 +165,7 @@ li {
 }
 // index intro carousel
 .index-image-container {
-  background-image: url("../images/about-print-2.webp");
+  background-image: url("../images/about-print-5.webp");
 }
 .index-image-container-two {
   background-image: url("../images/about-print-3.webp");
@@ -246,8 +283,8 @@ ul.hero-list {
   &.stats {
     background-color: #fb4e0494;
     padding: 60px 0;
-    background-image: url("../images/about-print-2.webp");
-    background-blend-mode: overlay;
+    background-image: url("../images/about-print-5.webp");
+    background-blend-mode: multiply;
     background-position: 10em -1em;
     background-size: cover;
     background-repeat: repeat;
@@ -294,20 +331,501 @@ ul.hero-list {
 .services .service-item {
   background-color: var(--secondary-color);
   box-shadow: 0 5px 30px 0 rgba(0, 0, 0, 0.1);
-  padding: 60px 30px 60px 70px;
   transition: all ease-in-out 0.3s;
-  border-radius: 18px;
   height: 100%;
+  width: 100%;
   overflow: hidden;
-  .icon i {
-    font-size: 64px;
-    line-height: 1;
-    transition: 0.5s;
+  .image-container {
+    width: 40%;
+    height: 8em;
+    margin-right: 2em;
+    img {
+      object-fit: cover;
+      height: 100%;
+      width: 100%;
+    }
+  }
+  p {
+    line-height: 24px;
+    font-size: 14px;
+    margin-bottom: 0;
+  }
+  .text {
+    width: 60%;
+    a {
+      h3 {
+        font-weight: bold;
+        font-size: 1.2rem;
+      }
+    }
   }
 }
 .services {
+  .section-title h2 {
+    font-size: 14px;
+    font-weight: 500;
+    padding: 0;
+    line-height: 1px;
+    margin: 0;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: color-mix(in srgb, var(--mydark), transparent 50%);
+    position: relative;
+    &::after {
+      content: "";
+      width: 120px;
+      height: 1px;
+      display: inline-block;
+      background: var(--main-color);
+      margin: 4px 10px;
+    }
+  }
   .my-card {
     margin-bottom: 2em;
+  }
+  .section-title p {
+    color: var(--heading-color);
+    margin: 0;
+    font-size: 28px;
+    font-weight: 700;
+    text-transform: uppercase;
+    font-family: var(--heading-font);
+  }
+}
+// index-gallery
+section.products-services {
+  .grid-container {
+    display: grid;
+    justify-items: center;
+    width: 100%;
+    grid-template-columns: repeat(auto-fit, minmax(24em, 1fr));
+    align-items: center;
+    gap: 1em 2em;
+    margin: 1em auto;
+  }
+  button.gallery-btn {
+    margin-top: 4em;
+    margin-bottom: 3em;
+    border-radius: 1em;
+  }
+  .product-div {
+    perspective: 1000px; // Enables 3D effect
+    margin: 20px;
+    .card-body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-color: var(--secondary-color);
+    }
+
+    .card {
+      transition: transform 0.6s ease, box-shadow 0.6s ease;
+      transform-style: preserve-3d;
+      will-change: transform, box-shadow;
+      box-shadow: 0 10px 20px var(--product-shadow),
+        0 6px 6px var(--product-shadow);
+      border: none;
+      overflow: hidden;
+
+      &:hover {
+        transform: rotateY(15deg) rotateX(10deg) scale(1.05);
+        box-shadow: 0 15px 30px var(--product-shadow),
+          0 10px 10px var(--product-shadow);
+      }
+
+      .mycard-img-top {
+        transition: transform 0.6s ease;
+        transform-origin: center center;
+
+        &:hover {
+          transform: scale(1.1); // Adds a subtle zoom effect
+        }
+      }
+
+      .card-body {
+        text-align: center;
+
+        .card-title {
+          font-size: 1.2rem;
+          color: var(--main-color);
+          font-weight: bold;
+        }
+      }
+    }
+  }
+}
+// index cta
+section.cta {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  position: relative;
+  background: #ffffff;
+  color: #000000;
+  border-radius: 100px;
+  padding: 25px 40px 25px 28px;
+  margin-top: -65px;
+  margin-bottom: -4em;
+  .ctaIcon {
+    position: relative;
+    display: flex;
+    i {
+      width: 82px;
+      height: 71px;
+      background: var(--main-color);
+      border-radius: 50%;
+      text-align: center;
+      line-height: 73px;
+      font-size: 30px;
+      color: #fff;
+      margin-right: 45px;
+      align-self: center;
+    }
+    h4 {
+      text-transform: uppercase;
+      color: var(--main-color);
+      line-height: 32px;
+      font-size: 24px;
+      font-weight: 500;
+      margin: 27px 0 0;
+    }
+  }
+  .mc4wp-form {
+    position: relative;
+    z-index: 2;
+    margin: 13px 0 0;
+    button.cta-btn {
+      height: 61px;
+      font-size: 18px;
+      line-height: 61px;
+      color: #fff;
+      border: none;
+      text-align: center;
+      text-transform: capitalize;
+      font-weight: 500;
+      background: var(--main-color);
+      border-radius: 50px;
+      position: absolute;
+      right: 0;
+      top: 0;
+      padding: 0 37px;
+      outline: none;
+      -webkit-transition: all 0.4s;
+      -moz-transition: all 0.4s;
+      transition: all 0.4s;
+    }
+  }
+  .mc4wp-form input[type="text"] {
+    width: 100%;
+    height: 61px;
+    border: none;
+    background: #343a40;
+
+    border-radius: 50px;
+    outline: none;
+    font-size: 18px;
+    color: #ffffff;
+    font-weight: 400;
+    padding: 0 51px;
+    margin: 0;
+  }
+}
+// about page
+//banner
+.about-banner {
+  background-image: url("../images/printing-5.webp");
+  background-color: #0000009a;
+  background-blend-mode: overlay;
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 30em;
+  width: 100%;
+  text-align: center;
+}
+// about-first
+section.about-first {
+  .about-imgbg {
+    &::after {
+      position: absolute;
+      content: "";
+      width: 100%;
+      height: 100%;
+      top: 0;
+      left: 0;
+      background: url(../images/bg-about-img.png) top left no-repeat;
+      background-size: contain;
+    }
+  }
+  .container-fluid {
+    h5 {
+      &::after {
+        content: "";
+        width: 30px;
+        height: 1px;
+        display: inline-block;
+        background: var(--main-color);
+        margin: 4px 10px;
+      }
+    }
+  }
+}
+section.about-two {
+  background-color: #db2b1b;
+  color: #ffffff;
+  opacity: 0.9;
+  background-position: center bottom;
+  background-size: cover;
+  background-blend-mode: color-burn;
+  .image-container.image-bg {
+    background-color: #ffffff;
+    border-top-left-radius: 6em;
+    border-bottom-right-radius: 6em;
+    height: 15.5em;
+    max-width: 20em;
+    position: relative;
+    img {
+      position: absolute;
+      top: 0px;
+    }
+  }
+  .image-container.height-increase {
+    height: 20em;
+  }
+  .image-container.img-two {
+    left: 14em;
+    bottom: 5em;
+  }
+}
+section.about-parallax {
+  .about-parallax {
+    background-image: url("../images/about-bannerbg.webp");
+    background-color: #000000af;
+    background-blend-mode: overlay;
+    background-repeat: no-repeat;
+    padding: 90px 20px;
+    background-position: bottom;
+    position: relative;
+    background-attachment: fixed;
+  }
+}
+
+// gallery page
+section.gallery {
+  .gallery-banner {
+    background-image: url("../images/gallery-bg.webp");
+    background-color: #000000c1;
+    background-blend-mode: overlay;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 30em;
+    width: 100%;
+    text-align: center;
+  }
+}
+section.mygallery {
+  .grid-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(20em, 1fr));
+    gap: 1rem;
+  }
+  .product-div {
+    perspective: 1000px;
+  }
+  .card {
+    width: 100%;
+    transition: transform 0.6s;
+    transform-style: preserve-3d;
+    position: relative;
+  }
+  .product-div:hover .card {
+    transform: rotateY(180deg);
+  }
+  .card-body,
+  .custom-card-img {
+    backface-visibility: hidden;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+  }
+  .custom-card-img {
+    transform: rotateY(0deg);
+  }
+  .card-body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transform: rotateY(180deg);
+    background-color: var(--main-color);
+    color: var(--secondary-color);
+  }
+}
+// gallery animation
+// contact page
+.contactbg {
+  background-image: url("../images/bg-3.webp");
+  background-color: #9d6249;
+  opacity: 0.85;
+  background-blend-mode: overlay;
+  background-position: center center;
+  background-size: cover;
+  .heading {
+    position: relative;
+    &::after {
+      position: absolute;
+      bottom: -20px;
+      left: 13em;
+      content: "";
+      width: 120px;
+      height: 5px;
+      display: inline-block;
+      background: var(--main-color);
+      margin: 4px 10px;
+    }
+  }
+  .contact-banner {
+    background-image: url("../images/about-print-2.webp");
+    background-color: #0000009a;
+    background-blend-mode: overlay;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 30em;
+    width: 100%;
+    text-align: center;
+  }
+  .text-container {
+    h1 {
+      font-size: 3rem;
+    }
+    p {
+      font-size: 1.5rem;
+    }
+  }
+  .contact3 {
+    border-right: 1px solid #c1000012;
+  }
+  .contact3 i {
+    font-size: 60px;
+    color: var(--main-color);
+  }
+  .hover-effect {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+
+  .hover-effect:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+  }
+
+  .contact-icon i {
+    font-size: 2.5rem;
+    color: #007bff;
+  }
+
+  .fixed-icons a {
+    position: fixed;
+    z-index: 1000;
+  }
+
+  .whatsapp-icon {
+    bottom: 10%;
+    left: 5%;
+  }
+
+  .call-icon {
+    bottom: 20%;
+    right: 5%;
+  }
+
+  .quick-purchase-icon {
+    bottom: 10%;
+    right: 5%;
+  }
+
+  .quick-purchase-icon img,
+  .whatsapp-icon img,
+  .call-icon img {
+    width: 50px;
+    height: 50px;
+  }
+
+  .map-container iframe {
+    border-radius: 5px;
+  }
+}
+// services page
+// services banner
+section.services-intro {
+  .services-banner {
+    background-image: url("../images/service-3.webp");
+    background-color: #0000009a;
+    background-blend-mode: overlay;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 30em;
+    width: 100%;
+    text-align: center;
+  }
+}
+section.services {
+  h4 {
+    font-weight: bold;
+  }
+  h2 {
+    span {
+      background-color: white;
+      padding: 0.5em;
+      border-radius: 1em;
+    }
+  }
+  img#largeImage {
+    width: 100%;
+  }
+  img.small-image {
+    width: 100%;
+  }
+  h2.sub-heading {
+    color: #575050 !important;
+  }
+  #business-cards {
+    .card-banner {
+      background-image: url("../images/services-businesscard.webp");
+      background-position: center;
+      background-size: cover;
+      background-repeat: no-repeat;
+      width: 100%;
+      height: 23em;
+      background-color: #0d00ff90;
+      background-blend-mode: darken;
+    }
+  }
+  #brouchures {
+    .card-banner {
+      background-image: url("../images/brouchure-banner.webp");
+      background-position: center;
+      background-size: cover;
+      background-repeat: no-repeat;
+      width: 100%;
+      height: 23em;
+      background-color: #ffcc0090;
+      background-blend-mode: darken;
+    }
+  }
+}
+// footer section
+footer {
+  background-image: url("../images/printing-6.webp");
+  background-color: #0d0e0f;
+  background-blend-mode: overlay;
+  background-position: top;
+  background-size: cover;
+  ul.quick-link {
+    li > a {
+      color: #ffffff;
+    }
   }
 }
 @keyframes move-forever1 {
@@ -348,16 +866,163 @@ ul.hero-list {
     opacity: 1;
   }
 }
+@keyframes bounceIn {
+  0% {
+    transform: scale(0.9) translateY(-50%);
+    opacity: 0;
+  }
+  50% {
+    transform: scale(1.05) translateY(10%);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1) translateY(0);
+  }
+}
+/* Fade-out effect for large image */
+.large-image {
+  transition: opacity 0.5s ease-in-out;
+}
+
+.large-image.fade-out {
+  opacity: 0; /* Fade out the image */
+}
+/* cursor Animations */
+@keyframes clickAnimation {
+  0% {
+    transform: translate(-50%, -50%) scale(1);
+    opacity: 1;
+  }
+  100% {
+    transform: translate(-50%, -50%) scale(2);
+    opacity: 0;
+  }
+}
 /* mobile screen  */
 @media (min-width: 1px) and (max-width: 767.98px) {
   .pad {
     padding: 40px 0;
   }
+  // nav
+  ul.navbar-nav {
+    background-color: var(--main-color);
+  }
+  // index page
+  section.cta {
+    border-radius: 0px;
+    .ctaIcon h4 {
+      font-size: 0.83rem;
+      margin: 0;
+    }
+    .ctaIcon i {
+      width: 50%;
+      height: 100%;
+    }
+    .mc4wp-form button.cta-btn {
+      padding: 0 22px;
+    }
+  }
+  section.products-services button.gallery-btn {
+    margin-top: 3em;
+    margin-bottom: 5em;
+    border-radius: 1em;
+  }
+  section.about-two {
+    .image-container.image-bg {
+      border-top-left-radius: 0;
+      border-bottom-right-radius: 0;
+      height: 15.5em;
+      max-width: 20em;
+      position: relative;
+      img {
+        position: absolute;
+        top: 0px;
+      }
+    }
+    .image-container.height-increase {
+      height: 20em;
+    }
+    .image-container.img-two {
+      left: 2em;
+      bottom: 3em;
+    }
+  }
+  // about last section
+  section.about-first .container-fluid h5::after {
+    display: none;
+  }
+  // services page
+  section.services {
+    // new layout
+    .my-carousel {
+      .image-container-large {
+        height: 40em;
+        width: 40%;
+        img.large-image {
+          object-fit: cover;
+          width: 100%;
+        }
+      }
+    }
+    h4 {
+      padding-top: 1em;
+    }
+    h2.sub-heading {
+      span {
+        font-size: 1.5rem;
+        line-height: 3em;
+        border-radius: 0px;
+      }
+    }
+  }
 }
-
+// tablet
 @media (min-width: 768px) and (max-width: 991.98px) {
   .pad {
     padding: 40px 0;
+  }
+  // nav
+  ul.navbar-nav {
+    background-color: var(--main-color);
+  }
+  section.products-services button.gallery-btn {
+    margin-top: 2.5em;
+    margin-bottom: 4em;
+    border-radius: 1em;
+  }
+  // index cta
+  section.cta {
+    .ctaIcon {
+      i {
+        width: 4em;
+        height: 100%;
+      }
+      h4 {
+        font-size: 1rem;
+      }
+    }
+    .mc4wp-form {
+      button.cta-btn {
+        background: transparent;
+        right: 7em;
+      }
+    }
+  }
+  // about
+  section.about-two .image-container.img-two {
+    left: 4em;
+    bottom: 2em;
+  }
+
+  // contact page
+  .contactbg {
+    h3.heading {
+      position: relative;
+      &::after {
+        bottom: -0.5em;
+        left: 8em;
+      }
+    }
   }
 }
 
@@ -456,7 +1121,7 @@ ul.hero-list {
 }
 // utility classes
 .bg-main {
-  background-color: var(--main-color);
+  background-color: var(--main-color) !important;
 }
 .text-nav-main {
   color: var(--main-color);
@@ -466,6 +1131,45 @@ ul.hero-list {
 .text-main {
   color: var(--main-color) !important;
 }
+.btn-outline-main {
+  color: var(--secondary-color) !important;
+  border-color: var(--secondary-color) !important ;
+  &:hover {
+    color: #fff !important;
+    background-color: var(--main-color) !important;
+    border-color: var(--main-color) !important;
+  }
+}
+.btn-outline-main-lightbg {
+  color: var(--main-color) !important;
+  border-color: var(--main-color) !important ;
+  &:hover {
+    color: #fff !important;
+    background-color: var(--main-color) !important;
+    border-color: var(--main-color) !important;
+  }
+}
 .text-secondary {
   color: var(--secondary-color);
+}
+.helvetica {
+  font-family: Helvetica, sans-serif;
+}
+.arial {
+  font-family: Arial, sans-serif;
+}
+.border-topc {
+  border-top: 1px solid var(--main-color) !important;
+}
+.animate-bounce-in {
+  animation: bounceIn 0.6s ease forwards;
+}
+.heading-underline {
+  width: 15em;
+  height: 8px;
+  background: var(--main-color);
+  content: "";
+  display: block;
+  transform: skew(-30deg);
+  margin: 0 auto;
 }
