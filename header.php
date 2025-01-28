@@ -29,9 +29,9 @@
                         Services
                     </a>
                     <div class="dropdown-menu">
-                        <a target="_blank" class="dropdown-item" href="services.php#business-cards">Business Card
+                        <a class="dropdown-item" href="services.php#business-cards">Business Card
                             Printing</a>
-                        <a target="_blank" class="dropdown-item" href="services.php#brouchures">Brochures Designing &
+                        <a class="dropdown-item" href="services.php#brouchures">Brochures Designing &
                             Printing</a>
                         <a target="_blank" class="dropdown-item" href="services.php">Flyers & Notice Printing</a>
                         <a target="_blank" class="dropdown-item" href="services.php">Posters Printing</a>

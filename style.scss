@@ -1,6 +1,7 @@
 @import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css");
 :root {
   --main-color: #fb4e04;
+  --light-main: #f57640;
   --secondary-color: #ffffff;
   --mydark: #000000;
   --sayan-yellow: #ffd700;
@@ -15,6 +16,7 @@ h5,
 h6 {
   font-family: Arial, sans-serif;
 }
+
 body {
   cursor: url("../images/cursor.png") 16 16, auto !important;
 }
@@ -50,6 +52,35 @@ li {
 }
 .wrdbrk {
   white-space: pre;
+}
+.lh-1 {
+  line-height: 1em !important;
+}
+.lh-2 {
+  line-height: 2em !important;
+}
+.lh-3 {
+  line-height: 3em !important;
+}
+.lh-4 {
+  line-height: 4em !important;
+}
+.lh-5 {
+  line-height: 5em !important;
+}
+.typewriter > .text {
+  border-right: 2px solid #000;
+  animation: blink 0.7s step-end infinite;
+}
+
+@keyframes blink {
+  from,
+  to {
+    border-color: transparent;
+  }
+  50% {
+    border-color: black;
+  }
 }
 .fullpad {
   padding: 0 !important;
@@ -239,6 +270,9 @@ li {
 // hero section in index page
 .hero-section-3 {
   background-color: #f8f9fa; /* Light gray background */
+  background-image: url("../images/bg_image.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
 .hero-section-3 .hero-title {
@@ -334,6 +368,7 @@ ul.hero-list {
   transition: all ease-in-out 0.3s;
   height: 100%;
   width: 100%;
+  box-shadow: 5px 3px 5px #b49485;
   overflow: hidden;
   .image-container {
     width: 40%;
@@ -361,6 +396,10 @@ ul.hero-list {
   }
 }
 .services {
+  background-image: url("../images/bg_image.jpg");
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
   .section-title h2 {
     font-size: 14px;
     font-weight: 500;
@@ -394,6 +433,12 @@ ul.hero-list {
 }
 // index-gallery
 section.products-services {
+  background-image: url("../images/bg1.jpg");
+  background-color: var(--main-color);
+  background-blend-mode: overlay;
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
   .grid-container {
     display: grid;
     justify-items: center;
@@ -402,15 +447,17 @@ section.products-services {
     align-items: center;
     gap: 1em 2em;
     margin: 1em auto;
+    padding: 0 3em;
   }
   button.gallery-btn {
-    margin-top: 4em;
-    margin-bottom: 3em;
     border-radius: 1em;
+    margin-bottom: 2em;
   }
   .product-div {
     perspective: 1000px; // Enables 3D effect
     margin: 20px;
+    width: 100%;
+    height: 100%;
     .card-body {
       display: flex;
       justify-content: center;
@@ -545,6 +592,10 @@ section.cta {
 }
 // about-first
 section.about-first {
+  background-color: #f8f9fa; /* Light gray background */
+  background-image: url("../images/bg_image.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
   .about-imgbg {
     &::after {
       position: absolute;
@@ -571,12 +622,13 @@ section.about-first {
   }
 }
 section.about-two {
-  background-color: #db2b1b;
+  background-image: url("../images/bg1.jpg");
+  background-color: #fb4e04;
   color: #ffffff;
   opacity: 0.9;
   background-position: center bottom;
   background-size: cover;
-  background-blend-mode: color-burn;
+  background-blend-mode: overlay;
   .image-container.image-bg {
     background-color: #ffffff;
     border-top-left-radius: 6em;
@@ -596,6 +648,20 @@ section.about-two {
     left: 14em;
     bottom: 5em;
   }
+}
+section.brands-section {
+  .brands {
+    img {
+      border-radius: 2em;
+    }
+  }
+}
+section.about-three,
+section.about-last {
+  background-color: #ffffff; /* Light gray background */
+  background-image: url("../images/bg_image.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 section.about-parallax {
   .about-parallax {
@@ -625,6 +691,10 @@ section.gallery {
   }
 }
 section.mygallery {
+  background-color: #f8f9fa; /* Light gray background */
+  background-image: url("../images/bg_image.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
   .grid-container {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(20em, 1fr));
@@ -881,12 +951,21 @@ footer {
 }
 /* Fade-out effect for large image */
 .large-image {
-  transition: opacity 0.5s ease-in-out;
+  transition: transform 0.5s ease-in-out, opacity 0.5s ease-in-out;
+  opacity: 1;
+  transform: translateX(0); /* Default position */
 }
 
-.large-image.fade-out {
-  opacity: 0; /* Fade out the image */
+.large-image.slide-out {
+  transform: translateX(-100%); /* Slide out to the left */
+  opacity: 0;
 }
+
+.large-image.slide-in {
+  transform: translateX(0); /* Slide in from the right */
+  opacity: 1;
+}
+
 /* cursor Animations */
 @keyframes clickAnimation {
   0% {
@@ -1122,6 +1201,9 @@ footer {
 // utility classes
 .bg-main {
   background-color: var(--main-color) !important;
+}
+.bg-light-main {
+  background-color: var(--light-main) !important;
 }
 .text-nav-main {
   color: var(--main-color);

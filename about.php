@@ -175,7 +175,7 @@
                     </div>
                 </div>
                 <div class="col-12 col-md-6 col-lg-6 wow fadeInRight" data-wow-delay="0.5s">
-                    <div class="">
+                    <div class="brands">
                         <div class="">
                             <div class="row">
                                 <div class="col-12 col-md-6 col-lg-6">

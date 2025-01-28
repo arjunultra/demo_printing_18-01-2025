@@ -4,7 +4,7 @@
             <div class="row">
                 <div class="col-lg-3 col-md-6">
                     <div class="footer-logo">
-                        <a href="index.html"><img src="images/logo.png" class="img-fluid w-100" alt="Ram Dev Arts"
+                        <a href="index.php"><img src="images/logo.png" class="img-fluid w-100" alt="Ram Dev Arts"
                                 title="Demo Printz"></a>
                         <p class="helvetica text-white">We are supply all kinds of packaging materials with/without
                             printing.

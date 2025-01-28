@@ -36,7 +36,8 @@
 	<script src="js/bootstrap.min.js"></script>
 	<script src="js/owl.carousel.min.js"></script>
 	<script src="js/wow.js"></script>
-	<script src="./js/script.js"></script>
+	<script src="js/gsap.min.js"></script>
+	<script defer src="./js/script.js"></script>
 
 </head>
 <!-- index-carousel  -->
@@ -44,9 +45,7 @@
 <!-- index-carousel end -->
 
 <body itemscope itemtype="http://schema.org/WebPage">
-	<!-- cursor -->
-	<div id="custom-cursor"></div>
-	<div class="click-effect"></div>
+
 	<?php include "header.php"; ?>
 	<div id="carouselExampleSlidesOnly" class="carousel slide" data-ride="carousel">
 		<div class="carousel-inner">
@@ -106,7 +105,14 @@
 			<div class="row d-flex justify-content-between align-items-center">
 				<div class="col-12 col-md-12 col-lg-6 text-center wow rollIn">
 					<div class="hero-text-container mb-4">
-						<h1 class="hero-title mb-2 text-main">High-Quality Offset Printing for Your Business</h1>
+						<h1 class="hero-title mb-2 text-main">
+							High-Quality
+							<a href="#" class="typewriter" data-interval="2000"
+								data-texts='["Offset Printing", "Digital Printing", "Logo Designing", "Gravure Printing"]'>
+								<span class="text"></span>
+							</a>
+							for Your Business
+						</h1>
 						<p class="hero-subtitle mb-4">
 							We provide professional offset printing services with a focus on quality,
 							precision, and timely delivery. From brochures to packaging, we've got you
@@ -180,7 +186,7 @@
 
 		<div class="container">
 			<div class="row">
-				<div class="col-lg-4 col-md-6 col-12 my-card hvr-box-shadow-outset">
+				<div class="col-lg-4 col-md-6 col-12 my-card hvr-grow">
 					<div class="service-item d-flex align-items-center justify-content-between">
 						<div class="image-container">
 							<img class="" src="images/service-6.webp" alt="Demo Printz business cards"
@@ -194,7 +200,7 @@
 						</div>
 					</div>
 				</div><!-- End Service Item -->
-				<div class="col-lg-4 col-md-6 col-12 my-card hvr-box-shadow-outset">
+				<div class="col-lg-4 col-md-6 col-12 my-card hvr-grow">
 					<div class="service-item d-flex align-items-center justify-content-between">
 						<div class="image-container">
 							<img class="" src="images/service-7.webp" alt="Demo Printz business cards"
@@ -208,7 +214,7 @@
 						</div>
 					</div>
 				</div><!-- End Service Item -->
-				<div class="col-lg-4 col-md-6 col-12 my-card hvr-box-shadow-outset">
+				<div class="col-lg-4 col-md-6 col-12 my-card hvr-grow">
 					<div class="service-item d-flex align-items-center justify-content-between">
 						<div class="image-container">
 							<img class="" src="images/service-8.webp" alt="Demo Printz business cards"
@@ -222,7 +228,7 @@
 						</div>
 					</div>
 				</div><!-- End Service Item -->
-				<div class="col-lg-4 col-md-6 col-12 my-card hvr-box-shadow-outset">
+				<div class="col-lg-4 col-md-6 col-12 my-card hvr-grow">
 					<div class="service-item d-flex align-items-center justify-content-between">
 						<div class="image-container">
 							<img class="" src="images/service-9.webp" alt="Demo Printz business cards"
@@ -236,7 +242,7 @@
 						</div>
 					</div>
 				</div><!-- End Service Item -->
-				<div class="col-lg-4 col-md-6 col-12 my-card hvr-box-shadow-outset">
+				<div class="col-lg-4 col-md-6 col-12 my-card hvr-grow">
 					<div class="service-item d-flex align-items-center justify-content-between">
 						<div class="image-container">
 							<img class="" src="images/service-10.webp" alt="Demo Printz business cards"
@@ -250,7 +256,7 @@
 						</div>
 					</div>
 				</div><!-- End Service Item -->
-				<div class="col-lg-4 col-md-6 col-12 my-card hvr-box-shadow-outset">
+				<div class="col-lg-4 col-md-6 col-12 my-card hvr-grow">
 					<div class="service-item d-flex align-items-center justify-content-between">
 						<div class="image-container">
 							<img class="" src="images/service-11.webp" alt="Demo Printz business cards"
@@ -268,10 +274,10 @@
 		</div>
 	</section>
 	<!-- Gallery Section index -->
-	<section class="products-services bg-main pad wow fadeInDownBig">
+	<section class="products-services pad wow fadeInDownBig">
 		<h2 class="h1 text-white font-weight-bold text-uppercase text-center mb-5 mb-md-0">Our Portfolio</h2>
 		<div class="grid-container">
-			<div class="product-div w-75">
+			<div class="product-div">
 				<div class="card custom-card">
 					<img src="./images/printing-1.webp" class="mycard-img-top" alt="Card Image">
 					<div class="card-body">
@@ -279,7 +285,7 @@
 					</div>
 				</div>
 			</div>
-			<div class="product-div w-75">
+			<div class="product-div">
 				<div class="card custom-card">
 					<img src="./images/gallery-1.webp" class="mycard-img-top" alt="Card Image">
 					<div class="card-body">
@@ -287,7 +293,7 @@
 					</div>
 				</div>
 			</div>
-			<div class="product-div w-75">
+			<div class="product-div">
 				<div class="card custom-card">
 					<img src="./images/gallery-2.webp" class="card-img-top" alt="Card Image">
 					<div class="card-body">
@@ -295,7 +301,7 @@
 					</div>
 				</div>
 			</div>
-			<div class="product-div w-75">
+			<div class="product-div">
 				<div class="card custom-card">
 					<img src="./images/printing-17.webp" class="card-img-top" alt="Card Image">
 					<div class="card-body">
@@ -303,7 +309,7 @@
 					</div>
 				</div>
 			</div>
-			<div class="product-div w-75">
+			<div class="product-div">
 				<div class="card custom-card">
 					<img src="./images/gallery-3.webp" class="card-img-top" alt="Card Image">
 					<div class="card-body">
@@ -311,7 +317,7 @@
 					</div>
 				</div>
 			</div>
-			<div class="product-div w-75">
+			<div class="product-div">
 				<div class="card custom-card">
 					<img src="./images/gallery-5.webp" class="card-img-top" alt="Card Image">
 					<div class="card-body">
@@ -320,7 +326,7 @@
 				</div>
 			</div>
 		</div>
-		<button class="btn btn-dark mx-auto d-block gallery-btn">
+		<button class="btn btn-dark mx-auto d-block gallery-btn btn-lg">
 			<a href="gallery.php" class="text-white text-uppercase">View More</a></a>
 		</button>
 	</section>
@@ -399,6 +405,7 @@
 			}
 		});
 	</script>
+	<!-- cursor -->
 	<div class="custom-cursor"></div>
 	<div class="click-effect"></div>
 </body>
